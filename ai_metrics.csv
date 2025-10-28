@@ -1,0 +1,15 @@
+timestamp,user_id,service_type,prediction,confidence,processing_time
+2025-10-11T19:18:12.402123,1,test,test_prediction,0.85,0.1
+2025-10-11T19:19:41.358288,1,test,test_prediction,0.85,0.1
+2025-10-11T19:21:10.027310,1,test,test_prediction,0.85,0.1
+2025-10-11T19:22:37.135897,1,test,test_prediction,0.85,0.1
+2025-10-11T20:50:15.754935,1,test,test_prediction,0.85,0.1
+2025-10-11T20:51:52.630765,1,test,test_prediction,0.85,0.1
+2025-10-11T20:53:16.994193,1,test,test_prediction,0.85,0.1
+2025-10-11T20:54:26.926944,1,test,test_prediction,0.85,0.1
+2025-10-11T20:55:27.671573,1,test,test_prediction,0.85,0.1
+2025-10-11T20:57:25.884228,1,test,test_prediction,0.85,0.1
+2025-10-11T21:00:08.877757,1,test,test_prediction,0.85,0.1
+2025-10-11T21:01:13.965511,1,test,test_prediction,0.85,0.1
+2025-10-11T21:04:22.546388,1,test,test_prediction,0.85,0.1
+2025-10-11T21:06:08.653155,1,test,test_prediction,0.85,0.1

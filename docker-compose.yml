@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  nutrition-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/nutrition_db
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - HF_API_TOKEN=${HF_API_TOKEN}
+      - FAISS_INDEX_PATH=backend/indexes/nutrition.index
+      - EMB_MODEL=all-MiniLM-L6-v2
+      - RF_MODEL_PATH=models/random_forest_model.pkl
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./backend/indexes:/app/backend/indexes
+    depends_on:
+      - redis
+      - postgres
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=nutrition_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+  postgres_data:

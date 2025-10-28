@@ -1,0 +1,26 @@
+fastapi
+uvicorn[standard]
+requests
+pandas
+scikit-learn
+joblib
+sentence-transformers
+faiss-cpu
+numpy
+python-dotenv
+transformers
+pydantic
+sqlalchemy
+alembic
+pytest
+pytest-asyncio
+httpx
+torch
+ollama
+tensorflow>=2.15.0
+tf-keras
+pillow
+opencv-python
+pyzbar
+protobuf>=3.20,<5.0  # Add this to constrain protobuf version
+google-cloud-vision

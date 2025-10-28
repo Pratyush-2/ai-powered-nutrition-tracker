@@ -1,0 +1,62 @@
+Proj fast_api/
+│── app/
+│   ├── __init__.py
+│   ├── main.py               # FastAPI entry point
+│   ├── database.py           # DB connection
+│   ├── models.py             # SQLAlchemy models
+│   ├── schemas.py            # Pydantic schemas
+│   ├── crud.py               # DB queries (Create, Read, Update, Delete)
+│   ├── routes/               # API endpoints
+│   │   ├── __init__.py
+│   │   ├── food.py           # Routes for food data
+│   │   ├── diary.py          # Routes for daily logs
+│   │   └── ai.py             # Routes for AI recommendations
+│   ├── services/             # Helper functions (barcode scanning, AI logic)
+│   │   ├── __init__.py
+│   │   ├── barcode.py
+│   │   └── ai_recommend.py
+│   ├── utils/                # Misc utilities
+│   │   ├── __init__.py
+│   │   └── helpers.py
+│   ├── config.py             # App config & env loading
+│
+├── .env                      # Environment variables
+├── requirements.txt          # Python dependencies
+└── README.md
+s
+
+
+
+
+
+1. Food
+
+POST /foods/ → Add a food item.
+
+GET /foods/ → Retrieve all food items.
+
+2. Daily Logs
+
+POST /logs/ → Add a daily log (make sure food_id exists).
+
+GET /logs/{log_date} → Get logs for a specific date.
+
+3. Daily Totals
+
+GET /totals/{log_date} → Check calorie/protein/carbs/fats totals.
+
+4. User Goals
+
+POST /goals/ → Set goals (ensure keys match schema: calories, protein, carbs, fats).
+
+GET /goals/ → Retrieve goals.
+
+5. User Profiles
+
+POST /profiles/ → Create profile.
+
+GET /profiles/ → List all profiles.
+
+GET /profiles/{profile_id} → Get profile by ID.
+
+
