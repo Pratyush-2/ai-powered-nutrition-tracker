@@ -14,7 +14,6 @@ from sqlalchemy.orm import Session
 from . import crud, schemas, utils
 from .database import get_db, engine, Base
 from .user_profiles import router as profiles_router
-from app.ai.ai_routes import router as ai_router
 from app.services.food_search import search_food_by_name
 from typing import Optional
 from app.schemas import DailyLogUpdate, UserGoalUpdate
@@ -37,7 +36,11 @@ app.add_middleware(
 
 # Routers
 app.include_router(profiles_router)
-app.include_router(ai_router)
+
+# Gate AI routes to avoid heavy deps in minimal environments/CI
+if os.getenv("ENABLE_AI_ROUTES", "0") == "1":
+    from app.ai.ai_routes import router as ai_router  # import lazily
+    app.include_router(ai_router)
 # app.include_router(chat.router)
 
 # Food endpoints
