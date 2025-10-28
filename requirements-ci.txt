@@ -1,0 +1,15 @@
+# Minimal dependencies for CI (unit tests only)
+fastapi
+uvicorn[standard]
+requests
+pydantic
+sqlalchemy
+alembic
+pytest
+pytest-asyncio
+httpx
+numpy
+pandas
+scikit-learn
+joblib
+python-dotenv
